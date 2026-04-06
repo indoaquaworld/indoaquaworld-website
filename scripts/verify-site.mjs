@@ -1,84 +1,48 @@
 import { chromium } from 'playwright';
-import { writeFileSync } from 'fs';
+import { mkdirSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SCREENSHOT_DIR = join(__dirname, 'screenshots');
-import { mkdirSync } from 'fs';
 mkdirSync(SCREENSHOT_DIR, { recursive: true });
 
 const browser = await chromium.launch({ headless: true });
+const pages = [
+  { name: 'home', url: 'https://indoaquaworld.com' },
+  { name: 'platform', url: 'https://indoaquaworld.com/platform' },
+  { name: 'dufi', url: 'https://indoaquaworld.com/dufi' },
+  { name: 'about', url: 'https://indoaquaworld.com/about' },
+];
 
-// Desktop viewport
+// Desktop
 const desktop = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-const dPage = await desktop.newPage();
-await dPage.goto('https://indoaquaworld.com', { waitUntil: 'domcontentloaded', timeout: 30000 });
-await dPage.waitForTimeout(3000);
-await dPage.screenshot({ path: join(SCREENSHOT_DIR, 'desktop-full.png'), fullPage: true });
-await dPage.screenshot({ path: join(SCREENSHOT_DIR, 'desktop-hero.png') });
+for (const pg of pages) {
+  const page = await desktop.newPage();
+  await page.goto(pg.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  await page.waitForTimeout(3000);
+  await page.screenshot({ path: join(SCREENSHOT_DIR, `${pg.name}-desktop.png`), fullPage: true });
 
-// Scroll to each section and screenshot
-for (const section of ['features', 'dufi', 'about', 'contact']) {
-  const el = await dPage.$(`#${section}`);
-  if (el) {
-    await el.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await dPage.screenshot({ path: join(SCREENSHOT_DIR, `desktop-${section}.png`) });
+  // Check broken images
+  const imgs = await page.$$eval('img', imgs => imgs.map(i => ({
+    src: i.src, ok: i.naturalWidth > 0, alt: i.alt
+  })));
+  const broken = imgs.filter(i => !i.ok);
+  if (broken.length) {
+    console.log(`[${pg.name}] BROKEN IMAGES: ${broken.map(i => i.src).join(', ')}`);
+  } else {
+    console.log(`[${pg.name}] ${imgs.length} images, all OK`);
   }
+  await page.close();
 }
 
-// Check all images
-const images = await dPage.$$eval('img', imgs => imgs.map(img => ({
-  src: img.src,
-  alt: img.alt,
-  naturalWidth: img.naturalWidth,
-  naturalHeight: img.naturalHeight,
-  displayed: img.offsetWidth > 0 && img.offsetHeight > 0,
-})));
-console.log('\n=== Images ===');
-for (const img of images) {
-  const status = img.naturalWidth > 0 ? 'OK' : 'BROKEN';
-  console.log(`  [${status}] ${img.src} (${img.naturalWidth}x${img.naturalHeight}, displayed: ${img.displayed}, alt: "${img.alt}")`);
-}
-
-// Check text content
-const textContent = await dPage.evaluate(() => {
-  const sections = {};
-  for (const id of ['features', 'dufi', 'about', 'contact']) {
-    const el = document.getElementById(id);
-    if (el) sections[id] = el.textContent.replace(/\s+/g, ' ').trim().slice(0, 300);
-  }
-  // Hero
-  const hero = document.querySelector('.hero');
-  if (hero) sections['hero'] = hero.textContent.replace(/\s+/g, ' ').trim();
-  return sections;
-});
-console.log('\n=== Text Content ===');
-for (const [section, text] of Object.entries(textContent)) {
-  console.log(`\n[${section}]`);
-  console.log(`  ${text}`);
-}
-
-// Check links
-const links = await dPage.$$eval('a', anchors => anchors.map(a => ({
-  href: a.href,
-  text: a.textContent.trim().slice(0, 50),
-})));
-console.log('\n=== Links ===');
-for (const link of links) {
-  console.log(`  ${link.text} -> ${link.href}`);
-}
-
-// Mobile viewport
+// Mobile - home only
 const mobile = await browser.newContext({ viewport: { width: 390, height: 844 } });
 const mPage = await mobile.newPage();
 await mPage.goto('https://indoaquaworld.com', { waitUntil: 'domcontentloaded', timeout: 30000 });
 await mPage.waitForTimeout(3000);
-await mPage.screenshot({ path: join(SCREENSHOT_DIR, 'mobile-full.png'), fullPage: true });
-await mPage.screenshot({ path: join(SCREENSHOT_DIR, 'mobile-hero.png') });
+await mPage.screenshot({ path: join(SCREENSHOT_DIR, 'home-mobile.png'), fullPage: true });
 
-console.log('\nScreenshots saved to scripts/screenshots/');
-
+console.log('\nScreenshots saved.');
 await browser.close();
 process.exit(0);

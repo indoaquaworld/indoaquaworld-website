@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Corporate website for Indo Aquaworld, a fish competition management platform provider. Built with Astro SSG, deployed to GitHub Pages.
+Corporate website for Indo Aquaworld, a fish competition management platform provider. Built with Astro SSG, deployed to Cloudflare Pages.
 
 Indo Aquaworld is NOT a fish community — it is the company that builds and operates the competition management platform. Its sole client is DUFI (Djoak United Flowerhorn Indonesia).
 
@@ -15,23 +15,26 @@ DUFI is one of two major flowerhorn (louhan) competition organizations in Indone
 - **Competition scale:** events draw 100-200+ fish entries from multiple provinces, across ~12 nomination categories
 - **Scoring criteria:** head, face, body, pearly, colour, marking, fantail, overall
 - **Social media:** Instagram [@dufi_official](https://instagram.com/dufi_official), [@dufiofficial.event](https://instagram.com/dufiofficial.event)
-- **No website** — this site serves as DUFI's de facto online presence due to personnel constraints
+- **No website** — `dufi.indoaquaworld.com` serves as DUFI's de facto online presence
 
 ## Stack
 
 - Astro (static site generator)
-- GitHub Pages (hosting, via GitHub Actions)
-- Domain: `indoaquaworld.com`
+- Cloudflare Pages (hosting, auto-deploys from GitHub on push to main)
+- Cloudflare Pages Functions (hostname-based routing)
+- Domains: `indoaquaworld.com` (corporate), `dufi.indoaquaworld.com` (DUFI)
+- DNS managed via Cloudflare
 
 ## Site Structure
 
-1. **Hero** — Indo Aquaworld as a fish competition management platform
-2. **Features** — platform capabilities (event management, scoring, ranking, tank registration)
-3. **DUFI section** — client spotlight, event timeline, links to Instagram
-4. **About** — company info
-5. **Contact/Footer**
+Multi-page site:
 
-The DUFI section serves as DUFI's de facto online presence since they have no website of their own.
+- `/` — Home: hero, featured event, platform overview, DUFI spotlight
+- `/platform` — Platform features detail
+- `/dufi` — DUFI client page: events, timeline, fish gallery, IG links
+- `/about` — Company info, stats, tech, contact
+
+`dufi.indoaquaworld.com` serves `/dufi` content at the root via Cloudflare Pages Functions middleware (`functions/_middleware.ts`).
 
 ## Content Strategy
 
@@ -43,10 +46,19 @@ This website is **complementary** to DUFI's Instagram accounts and the competiti
 
 ## Design
 
-- Colors: primary #0065FF, accent #F34913, dark #172B4D, text #344563, gray #E4E5E9
-- Font: Roboto (Google Fonts)
+- Colors: primary #0065FF, accent #F34913, accent-gold #D4A017, dark #0D1B2A, dark-mid #172B4D, text #344563, gray #E4E5E9
+- Fonts: Bebas Neue (display), Source Sans 3 (body)
 - Logo: same SVG as the aquaworld-app project
-- Shared design system with `app.indoaquaworld.com`
+- Fish photos from DUFI Instagram used as hero backgrounds and gallery
+
+## Deployment
+
+- **Hosting:** Cloudflare Pages (project: `indoaquaworld-website`)
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Domains:** `indoaquaworld.com`, `dufi.indoaquaworld.com`
+- **DNS:** Cloudflare (nameservers: ignacio.ns.cloudflare.com, kami.ns.cloudflare.com)
+- **App subdomain:** `app.indoaquaworld.com` → A record to VPS 103.175.221.12
 
 ## Related Projects
 
@@ -58,5 +70,4 @@ This website is **complementary** to DUFI's Instagram accounts and the competiti
 
 - Do not position Indo Aquaworld as a fish community — it is a platform provider
 - Do not use fallback/default values — throw errors in logs
-- Do not add dynamic server-side features — this is a static site
 - Do not add JavaScript frameworks beyond what Astro provides
