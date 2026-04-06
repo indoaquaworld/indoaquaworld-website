@@ -1,63 +1,81 @@
 ---
+import Logo from './Logo.astro';
 const year = new Date().getFullYear();
 ---
 
-<footer id="contact">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h3>Indo Aquaworld</h3>
-      <p>Fish competition management platform.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Links</h4>
-      <ul>
-        <li><a href="#features">Platform</a></li>
-        <li><a href="#dufi">DUFI</a></li>
-        <li><a href="https://app.indoaquaworld.com" target="_blank" rel="noopener">Launch App</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li>Email: info@indoaquaworld.com</li>
-      </ul>
+<footer>
+  <div class="footer-top">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <Logo size={160} />
+        <p>Fish competition management platform for the ornamental fish community.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/platform">Platform</a></li>
+            <li><a href="/dufi">DUFI</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://app.indoaquaworld.com" target="_blank" rel="noopener">Launch App</a></li>
+            <li><a href="https://instagram.com/dufi_official" target="_blank" rel="noopener">Instagram</a></li>
+            <li>info@indoaquaworld.com</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; {year} Indo Aquaworld</p>
+    <div class="footer-inner-bottom">
+      <p>&copy; {year} Indo Aquaworld</p>
+    </div>
   </div>
 </footer>
 
 <style>
   footer {
-    background: #172B4D;
-    color: #E4E5E9;
-    padding: 3rem 1.5rem 1.5rem;
+    background: var(--color-dark);
+    color: var(--color-light);
+  }
+
+  .footer-top {
+    border-top: 3px solid var(--color-accent);
   }
 
   .footer-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 4rem 2rem 3rem;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+  }
+
+  .footer-brand p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
-  h3 {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-
   h4 {
-    color: #fff;
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.85rem;
-    color: #7A869A;
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
   }
 
   ul {
@@ -65,14 +83,15 @@ const year = new Date().getFullYear();
   }
 
   li {
-    font-size: 0.85rem;
-    color: #7A869A;
-    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.6rem;
   }
 
   li a {
-    color: #7A869A;
+    color: var(--color-text-light);
     text-decoration: none;
+    transition: color 0.2s;
   }
 
   li a:hover {
@@ -80,17 +99,25 @@ const year = new Date().getFullYear();
   }
 
   .footer-bottom {
-    max-width: 1100px;
-    margin: 2rem auto 0;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .footer-inner-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
     text-align: center;
   }
 
-  @media (max-width: 600px) {
+  .footer-inner-bottom p {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 640px) {
     .footer-inner {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 2.5rem;
     }
   }
 </style>

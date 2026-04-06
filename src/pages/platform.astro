@@ -1,0 +1,400 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import venueImg from '../assets/images/ig/venue-setup.jpg';
+import tankImg from '../assets/images/ig/tank-073.jpg';
+---
+
+<BaseLayout title="Platform — Indo Aquaworld">
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <Image src={venueImg} alt="" width={1600} quality={80} />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content animate-in">
+      <p class="section-label" style="color: var(--color-accent-gold);">The Platform</p>
+      <h1 class="hero-title">Competition Management,<br/>End to End</h1>
+      <p class="hero-sub">
+        From event setup and fish registration to multi-criteria scoring
+        and automated ranking — one platform for the full competition lifecycle.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="section-inner">
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="feature-num">01</span>
+          <h2>Event Management</h2>
+          <p>Create and manage competition events with full lifecycle tracking.
+            Assign venues, set dates, manage publish and event status.
+            Track events from draft through to completion.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="visual-card">
+            <div class="status-flow">
+              <span class="status draft">Draft</span>
+              <span class="arrow">&rarr;</span>
+              <span class="status published">Published</span>
+              <span class="arrow">&rarr;</span>
+              <span class="status ongoing">Ongoing</span>
+              <span class="arrow">&rarr;</span>
+              <span class="status finished">Finished</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <span class="feature-num">02</span>
+          <h2>Fish Registration</h2>
+          <p>Register contestants, teams, and fish tanks. Organize entries across
+            19 nomination categories — Cencu, Chinghwa, Golden Base, Free Marking,
+            Klasik, Bonsai, and Prospek varieties in multiple size classes.</p>
+        </div>
+        <div class="feature-visual">
+          <Image src={tankImg} alt="Fish tanks registered in the competition app" width={500} class="visual-img" />
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="feature-num">03</span>
+          <h2>Multi-Criteria Scoring</h2>
+          <p>8 scoring criteria with configurable weight percentages per nomination
+            category. Scores are calculated with precision — BigDecimal, 2 decimal places, HALF_UP rounding.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="visual-card criteria-grid">
+            <div class="criteria">Head</div>
+            <div class="criteria">Face</div>
+            <div class="criteria">Body</div>
+            <div class="criteria accent">Pearly</div>
+            <div class="criteria accent">Colour</div>
+            <div class="criteria accent">Marking</div>
+            <div class="criteria">Fantail</div>
+            <div class="criteria">Overall</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <span class="feature-num">04</span>
+          <h2>Penalty Handling</h2>
+          <p>Two-tier penalty system. Minor penalties (1-2 infractions) reduce
+            specific criteria points by 10%. Major penalties (3+ or forced) reduce
+            total score by 20%. Transparent and auditable.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="visual-card penalty-demo">
+            <div class="penalty-tier">
+              <span class="tier-label minor">Minor</span>
+              <span class="tier-val">-10% per criterion</span>
+            </div>
+            <div class="penalty-tier">
+              <span class="tier-label major">Major</span>
+              <span class="tier-val">-20% total score</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="feature-num">05</span>
+          <h2>Automated Ranking</h2>
+          <p>After every score submission, all tanks in the same category are
+            re-ranked by grand total. Per-category ranking views and event-wide
+            result summaries with full score breakdowns.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="visual-card rank-demo">
+            <div class="rank-row gold"><span class="rank">#1</span> Tank 073 <span class="score">92.45</span></div>
+            <div class="rank-row silver"><span class="rank">#2</span> Tank 017 <span class="score">89.12</span></div>
+            <div class="rank-row bronze"><span class="rank">#3</span> Tank 019 <span class="score">87.30</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <span class="feature-num">06</span>
+          <h2>Mobile-Ready PWA</h2>
+          <p>Progressive Web App with offline caching. Score fish at the venue
+            on any phone or tablet, view results anywhere. No app store required
+            — install directly from the browser.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="visual-card pwa-badge">
+            <span class="pwa-icon">PWA</span>
+            <span>Works offline. Install from browser.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-inner" style="text-align: center;">
+      <h2 class="section-title section-title--light">Ready to Score?</h2>
+      <p style="color: rgba(255,255,255,0.6); margin-top: 1rem; font-size: 1.1rem;">
+        The Indo Aquaworld platform is live and in use by DUFI.
+      </p>
+      <a href="https://app.indoaquaworld.com" class="btn btn--primary" style="margin-top: 2rem;" target="_blank" rel="noopener">Launch App</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 10rem 2rem 6rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13,27,42,0.93) 0%, rgba(13,27,42,0.85) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin-top: 0.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-top: 1.25rem;
+    max-width: 560px;
+  }
+
+  /* Features */
+  .features {
+    background: #fff;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-light);
+  }
+
+  .feature-row:last-child {
+    border-bottom: none;
+  }
+
+  .feature-row.reverse {
+    direction: rtl;
+  }
+
+  .feature-row.reverse > * {
+    direction: ltr;
+  }
+
+  .feature-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-accent);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .feature-text h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-dark);
+    letter-spacing: 0.02em;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .feature-text p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .visual-card {
+    background: var(--color-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    color: #fff;
+  }
+
+  .visual-img {
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
+
+  /* Status flow */
+  .status-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .status {
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .status.draft { background: rgba(255,255,255,0.1); }
+  .status.published { background: var(--color-primary); }
+  .status.ongoing { background: var(--color-accent); }
+  .status.finished { background: #1B7A3D; }
+  .arrow { color: var(--color-text-light); }
+
+  /* Criteria */
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .criteria {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .criteria.accent {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* Penalty */
+  .penalty-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .penalty-tier {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .tier-label {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .tier-label.minor { background: #D4A017; color: var(--color-dark); }
+  .tier-label.major { background: var(--color-accent); }
+
+  .tier-val {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+  }
+
+  /* Ranking */
+  .rank-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .rank-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    font-weight: 600;
+    border-left: 3px solid transparent;
+  }
+
+  .rank-row.gold { border-left-color: #D4A017; }
+  .rank-row.silver { border-left-color: #A8A8A8; }
+  .rank-row.bronze { border-left-color: #CD7F32; }
+
+  .rank { font-family: var(--font-display); font-size: 1.2rem; min-width: 30px; }
+  .score { margin-left: auto; color: var(--color-accent); font-family: var(--font-display); font-size: 1.1rem; }
+
+  /* PWA */
+  .pwa-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .pwa-icon {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-dark);
+  }
+
+  @media (max-width: 768px) {
+    .feature-row,
+    .feature-row.reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+      gap: 2rem;
+    }
+
+    .criteria-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

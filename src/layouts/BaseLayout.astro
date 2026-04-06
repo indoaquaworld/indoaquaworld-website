@@ -17,7 +17,7 @@ const { title, description = 'Indo Aquaworld — Fish Competition Management Pla
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body>
@@ -26,24 +26,125 @@ const { title, description = 'Indo Aquaworld — Fish Competition Management Pla
 </html>
 
 <style is:global>
+  :root {
+    --color-primary: #0065FF;
+    --color-accent: #F34913;
+    --color-accent-gold: #D4A017;
+    --color-dark: #0D1B2A;
+    --color-dark-mid: #172B4D;
+    --color-text: #344563;
+    --color-text-light: #7A869A;
+    --color-light: #E4E5E9;
+    --color-surface: #F4F5F7;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Source Sans 3', sans-serif;
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family: 'Roboto', sans-serif;
-    color: #344563;
+    font-family: var(--font-body);
+    color: var(--color-text);
     background: #fff;
+    overflow-x: hidden;
   }
 
   a {
-    color: #0065FF;
+    color: var(--color-primary);
     text-decoration: none;
   }
 
   a:hover {
     text-decoration: underline;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--color-dark);
+  }
+
+  .section-title--light {
+    color: #fff;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2.25rem;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .btn--primary {
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(243, 73, 19, 0.3);
+  }
+
+  .btn--primary:hover {
+    box-shadow: 0 8px 30px rgba(243, 73, 19, 0.45);
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .btn--outline:hover {
+    border-color: #fff;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-in {
+    animation: fadeInUp 0.7s ease-out both;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
 </style>

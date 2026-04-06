@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Logo from '../components/Logo.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="About — Indo Aquaworld">
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content animate-in">
+      <p class="section-label" style="color: var(--color-accent-gold);">About</p>
+      <h1 class="hero-title">Indo Aquaworld</h1>
+      <p class="hero-sub">
+        We build and operate competition management tools
+        for the ornamental fish community.
+      </p>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="about-content">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>What We Do</h2>
+          <p>
+            Indo Aquaworld provides a competition management platform purpose-built for
+            ornamental fish contests. The platform handles the full competition lifecycle —
+            event setup, contestant and team registration, fish tank management, multi-criteria
+            scoring with configurable weights, penalty tracking, and automated ranking.
+          </p>
+          <p>
+            Our sole client is DUFI (Djoak United Flowerhorn Indonesia), one of the major
+            flowerhorn competition organizations in Indonesia. We operate at their scale —
+            21+ events, 152+ contestants, 2,200+ fish entries, across 19 nomination categories.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">21+</span>
+            <span class="stat-label">Events Managed</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2,200+</span>
+            <span class="stat-label">Fish Entries</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">152+</span>
+            <span class="stat-label">Contestants</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">19</span>
+            <span class="stat-label">Nomination Categories</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech -->
+  <section class="tech-section">
+    <div class="section-inner">
+      <p class="section-label">Technology</p>
+      <h2 class="section-title section-title--light">How It's Built</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Web Application</h3>
+          <p>Server-rendered with Spring Boot and Thymeleaf. HTMX for partial page updates.
+            Tailwind CSS for the UI. No JavaScript frameworks.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Progressive Web App</h3>
+          <p>Service worker for offline caching. Installable from any browser.
+            Mobile-first responsive design with touch-friendly 44px tap targets.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Competition Engine</h3>
+          <p>BigDecimal precision scoring. 8 criteria with configurable weights.
+            Two-tier penalty system. Automatic re-ranking after each score.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div>
+          <p class="section-label">Get In Touch</p>
+          <h2 class="section-title">Contact</h2>
+          <p class="contact-desc">
+            Interested in the platform or have questions about fish competition management?
+          </p>
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-key">Email</span>
+            <span>info@indoaquaworld.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-key">App</span>
+            <a href="https://app.indoaquaworld.com" target="_blank" rel="noopener">app.indoaquaworld.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-key">Website</span>
+            <span>indoaquaworld.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    background: var(--color-dark);
+    padding: 12rem 2rem 6rem;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #fff;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-top: 0.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-top: 1.25rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* About */
+  .about-content {
+    background: #fff;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-dark);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 1.75rem;
+    border-top: 3px solid var(--color-accent);
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-dark);
+    line-height: 1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Tech */
+  .tech-section {
+    background: var(--color-dark);
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .tech-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .tech-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
+  }
+
+  .tech-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  /* Contact */
+  .contact-section {
+    background: var(--color-surface);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .contact-key {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    min-width: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
