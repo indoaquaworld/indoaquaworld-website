@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && wrangler pages functions build --outdir=./dist/worker/",
     "preview": "astro preview",
     "astro": "astro"
   },
