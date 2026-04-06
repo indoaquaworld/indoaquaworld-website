@@ -1,12 +1,15 @@
 export const onRequest: PagesFunction = async (context) => {
   const url = new URL(context.request.url);
-  const hostname = url.hostname;
 
-  // dufi.indoaquaworld.com → serve /dufi content at root
-  if (hostname === 'dufi.indoaquaworld.com') {
+  if (url.hostname === 'dufi.indoaquaworld.com') {
     if (url.pathname === '/' || url.pathname === '') {
-      url.pathname = '/dufi';
-      return context.env.ASSETS.fetch(new Request(url.toString(), context.request));
+      // Fetch the /dufi/index.html page from static assets
+      const rewritten = new URL('/dufi/', url.origin);
+      const response = await context.env.ASSETS.fetch(rewritten.toString());
+      return new Response(response.body, {
+        status: response.status,
+        headers: response.headers,
+      });
     }
   }
 
