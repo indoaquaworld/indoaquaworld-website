@@ -13,6 +13,12 @@ import cccFish from '../assets/images/ig/ccc-winner.jpg';
 import bonsaiFish from '../assets/images/ig/bonsai-ilc2.jpg';
 import strongFish from '../assets/images/ig/flowerhorn-strong.jpg';
 import venueImg from '../assets/images/ig/venue-setup.jpg';
+import trophiesImg from '../assets/images/events/trophies-organizers.jpeg';
+import ceremonyImg from '../assets/images/events/award-ceremony.jpeg';
+import gatheringImg from '../assets/images/events/community-gathering.jpeg';
+import teamImg from '../assets/images/events/team-photo.jpeg';
+import membersImg from '../assets/images/events/dufi-members.jpeg';
+import ilcTrophiesImg from '../assets/images/events/ilc-final-trophies.jpeg';
 ---
 
 <BaseLayout title="DUFI — Djoak United Flowerhorn Indonesia">
@@ -189,6 +195,40 @@ import venueImg from '../assets/images/ig/venue-setup.jpg';
           <span class="ev-name">ILC 2 "Spirit Of Patriotism"</span>
           <span class="ev-loc">Raiser Ikan Hias, Bogor</span>
           <span class="ev-fish">146 fish</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Events -->
+  <section class="community-section">
+    <div class="section-inner">
+      <p class="section-label">Community</p>
+      <h2 class="section-title">Competitions & Gatherings</h2>
+      <div class="community-grid">
+        <div class="community-item wide">
+          <Image src={ilcTrophiesImg} alt="Trophy display at Final ILC, Raiser Cibinong Bogor, November 2023" width={800} />
+          <span class="community-caption">Final ILC "Sang Juara" — Raiser Cibinong, Bogor, November 2023</span>
+        </div>
+        <div class="community-item">
+          <Image src={trophiesImg} alt="DUFI organizers with golden flowerhorn trophies" width={500} />
+          <span class="community-caption">Organizers with championship trophies</span>
+        </div>
+        <div class="community-item">
+          <Image src={ceremonyImg} alt="Award ceremony at DUFI competition" width={500} />
+          <span class="community-caption">Award ceremony</span>
+        </div>
+        <div class="community-item">
+          <Image src={gatheringImg} alt="DUFI community gathering — group selfie" width={500} />
+          <span class="community-caption">Community gathering</span>
+        </div>
+        <div class="community-item">
+          <Image src={teamImg} alt="DUFI Priangan chapter team photo with trophy" width={500} />
+          <span class="community-caption">DUFI Priangan chapter</span>
+        </div>
+        <div class="community-item wide">
+          <Image src={membersImg} alt="DUFI members team photo" width={800} />
+          <span class="community-caption">DUFI members</span>
         </div>
       </div>
     </div>
@@ -505,6 +545,74 @@ import venueImg from '../assets/images/ig/venue-setup.jpg';
     font-size: 0.95rem;
     color: var(--color-accent);
     letter-spacing: 0.05em;
+  }
+
+  /* Community */
+  .community-section {
+    background: var(--color-dark);
+  }
+
+  .community-section .section-title {
+    color: #fff;
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .community-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .community-item.wide {
+    grid-column: span 2;
+  }
+
+  .community-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    transition: transform 0.5s;
+  }
+
+  .community-item.wide img {
+    aspect-ratio: 21/9;
+  }
+
+  .community-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .community-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1rem 0.75rem;
+    background: linear-gradient(0deg, rgba(13,27,42,0.85) 0%, transparent 100%);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  @media (max-width: 600px) {
+    .community-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .community-item.wide {
+      grid-column: 1;
+    }
+
+    .community-item img,
+    .community-item.wide img {
+      aspect-ratio: 16/9;
+    }
   }
 
   /* Venue */
