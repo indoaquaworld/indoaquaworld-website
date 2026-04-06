@@ -1,0 +1,96 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>Indo Aquaworld</h3>
+      <p>Fish competition management platform.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#features">Platform</a></li>
+        <li><a href="#dufi">DUFI</a></li>
+        <li><a href="https://app.indoaquaworld.com" target="_blank" rel="noopener">Launch App</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>Email: info@indoaquaworld.com</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {year} Indo Aquaworld</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #172B4D;
+    color: #E4E5E9;
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #7A869A;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    font-size: 0.85rem;
+    color: #7A869A;
+    margin-bottom: 0.25rem;
+  }
+
+  li a {
+    color: #7A869A;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

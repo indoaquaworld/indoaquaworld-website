@@ -1,0 +1,406 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Logo from '../components/Logo.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import klangPoster from '../assets/images/klang-2026.jpeg';
+---
+
+<BaseLayout title="Indo Aquaworld — Fish Competition Management Platform">
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <Logo size={300} />
+      <p class="tagline">Platform Manajemen Kompetisi Ikan Hias</p>
+      <p class="subtitle">
+        End-to-end competition management — from fish registration and multi-criteria scoring to automated ranking and results.
+      </p>
+      <a href="https://app.indoaquaworld.com" class="cta" target="_blank" rel="noopener">Launch App</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="section-inner">
+      <h2>Platform</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Event Management</h3>
+          <p>Create and manage competition events. Track event status from draft through to completion.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Fish Registration</h3>
+          <p>Register contestants, teams, and fish tanks. Organize entries by nomination categories.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Multi-Criteria Scoring</h3>
+          <p>8 scoring criteria — head, face, body, pearly, colour, marking, fantail, overall — with configurable weight percentages.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Automated Ranking</h3>
+          <p>Real-time ranking recalculation after each score submission. Penalty handling with minor and major tiers.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Results &amp; Reports</h3>
+          <p>Per-category ranking views and event-wide result summaries. Transparent scoring breakdowns.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Mobile-Ready</h3>
+          <p>Progressive Web App — works on phones and tablets. Score fish at the venue, view results anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUFI -->
+  <section id="dufi" class="dufi">
+    <div class="section-inner">
+      <h2>DUFI — Djoak United Flowerhorn Indonesia</h2>
+      <p class="dufi-intro">
+        DUFI is one of the major flowerhorn (louhan) competition organizations in Indonesia,
+        operating at an international scale. They organize the Indonesia Louhan Championship (ILC)
+        — a multi-chapter national competition series — along with regional contests, gatherings,
+        and showcases across Indonesia and Southeast Asia.
+      </p>
+
+      <div class="featured-event">
+        <div class="featured-event-image">
+          <Image src={klangPoster} alt="12th Klang Flowerhorn Competition 2026 poster" width={560} />
+        </div>
+        <div class="featured-event-info">
+          <span class="badge">Upcoming</span>
+          <h3>12th Klang Flowerhorn Competition 2026</h3>
+          <p class="event-date">7 — 12 April 2026</p>
+          <p class="event-location">Akuarium De Tropika, Klang, Selangor, Malaysia</p>
+          <ul class="event-details">
+            <li>Organiser: Zhong Sia</li>
+            <li>Contact: 019-230 7192</li>
+            <li>No. 11, Jalan Laksamana, Off Jalan Sg. Jati, 41200 Klang, Selangor Darul Ehsan, Malaysia</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="timeline-heading">Past Events</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Mar 2026</span>
+          <h4>ILC Final Battle Team 2025—2026</h4>
+          <p class="event-location">Mangga 2 Square, Pademangan, Jakarta Utara</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Jan 2025</span>
+          <h4>ILC Final Battle — Java Island Region</h4>
+          <p class="event-location">Surabaya</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Apr 2019</span>
+          <h4>Indonesia Louhan Championship #2</h4>
+          <p class="event-location">Raiser, Cibinong, Bogor</p>
+        </div>
+      </div>
+
+      <div class="dufi-follow">
+        <p>Follow DUFI for the latest events and results:</p>
+        <div class="dufi-links">
+          <a href="https://instagram.com/dufi_official" target="_blank" rel="noopener">@dufi_official</a>
+          <a href="https://instagram.com/dufiofficial.event" target="_blank" rel="noopener">@dufiofficial.event</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="section-inner">
+      <h2>About Indo Aquaworld</h2>
+      <p>
+        Indo Aquaworld builds and operates competition management tools for the ornamental fish community.
+        The platform handles the full competition lifecycle — event setup, contestant registration, scoring, penalty tracking, and automated ranking.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    background: #172B4D;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .hero-inner {
+    max-width: 700px;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #E4E5E9;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: #7A869A;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: #0065FF;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta:hover {
+    background: #0050cc;
+    text-decoration: none;
+  }
+
+  /* Sections shared */
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #172B4D;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Features */
+  .features {
+    background: #fff;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: #F4F5F7;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #172B4D;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    color: #344563;
+    line-height: 1.5;
+  }
+
+  /* DUFI */
+  .dufi {
+    background: #F4F5F7;
+  }
+
+  .dufi-intro {
+    font-size: 1rem;
+    color: #344563;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+
+  .featured-event {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    background: #172B4D;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .featured-event-image {
+    display: flex;
+  }
+
+  .featured-event-image img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .featured-event-info {
+    padding: 2rem 2rem 2rem 0;
+    color: #fff;
+  }
+
+  .featured-event-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .featured-event-info .event-date {
+    color: #E4E5E9;
+  }
+
+  .featured-event-info .event-location {
+    color: #E4E5E9;
+  }
+
+  .event-details {
+    list-style: none;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #7A869A;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .featured-event {
+      grid-template-columns: 1fr;
+    }
+
+    .featured-event-info {
+      padding: 1.5rem;
+    }
+  }
+
+  .timeline-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #172B4D;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline {
+    border-left: 2px solid #E4E5E9;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7A869A;
+  }
+
+  .timeline-item.upcoming::before {
+    background: #F34913;
+  }
+
+  .timeline-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #172B4D;
+    margin-bottom: 0.25rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #F34913;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #7A869A;
+  }
+
+  .event-date {
+    color: #7A869A;
+    font-size: 0.85rem;
+  }
+
+  .event-location {
+    color: #7A869A;
+    font-size: 0.85rem;
+  }
+
+  .dufi-follow {
+    margin-top: 2.5rem;
+  }
+
+  .dufi-follow p {
+    font-size: 0.9rem;
+    color: #344563;
+    margin-bottom: 0.5rem;
+  }
+
+  .dufi-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .dufi-links a {
+    color: #0065FF;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* About */
+  .about {
+    background: #fff;
+  }
+
+  .about p {
+    font-size: 1rem;
+    color: #344563;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+
+  @media (max-width: 768px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: auto;
+      padding: 8rem 1.5rem 4rem;
+    }
+  }
+</style>
