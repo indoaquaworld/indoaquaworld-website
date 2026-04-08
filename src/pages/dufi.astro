@@ -19,6 +19,8 @@ import gatheringImg from '../assets/images/events/community-gathering.jpeg';
 import teamImg from '../assets/images/events/team-photo.jpeg';
 import membersImg from '../assets/images/events/dufi-members.jpeg';
 import ilcTrophiesImg from '../assets/images/events/ilc-final-trophies.jpeg';
+import zhongXia from '../assets/images/organizers/zhong-xia.jpeg';
+import lowNelson from '../assets/images/organizers/low-nelson.jpeg';
 ---
 
 <BaseLayout title="DUFI — Djoak United Flowerhorn Indonesia">
@@ -60,7 +62,27 @@ import ilcTrophiesImg from '../assets/images/events/ilc-final-trophies.jpeg';
             <div class="meta-item"><span class="meta-key">Date</span> 7 — 12 April 2026</div>
             <div class="meta-item"><span class="meta-key">Venue</span> Akuarium De Tropika</div>
             <div class="meta-item"><span class="meta-key">Location</span> Klang, Selangor, Malaysia</div>
-            <div class="meta-item"><span class="meta-key">Organiser</span> Zhong Sia — 019-230 7192</div>
+          </div>
+
+          <div class="organizers">
+            <span class="organizers-label">Event Organizers</span>
+            <div class="organizers-row">
+              <div class="organizer">
+                <Image src={zhongXia} alt="Zhong Xia, Head EO" width={120} />
+                <div class="organizer-info">
+                  <span class="organizer-name">Zhong Xia</span>
+                  <span class="organizer-role">Head EO</span>
+                  <span class="organizer-contact">019-230 7192</span>
+                </div>
+              </div>
+              <div class="organizer">
+                <Image src={lowNelson} alt="Low Nelson, Assistant EO" width={120} />
+                <div class="organizer-info">
+                  <span class="organizer-name">Low Nelson</span>
+                  <span class="organizer-role">Assistant EO</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -436,6 +458,65 @@ import ilcTrophiesImg from '../assets/images/events/ilc-final-trophies.jpeg';
     margin-right: 0.75rem;
     display: inline-block;
     min-width: 85px;
+  }
+
+  /* Organizers */
+  .organizers {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .organizers-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .organizers-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .organizer {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .organizer img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-accent);
+  }
+
+  .organizer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .organizer-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.95rem;
+  }
+
+  .organizer-role {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .organizer-contact {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
   }
 
   /* Timeline */
